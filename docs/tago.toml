@@ -1,0 +1,10 @@
+title       = "cf"
+baseURL     = "https://codeforces-cli.tamnd.com/"
+description = "Browse Codeforces competitive programming problems"
+contentDir  = "content"
+outputDir   = "public"
+theme       = "tago-doks"
+syntaxHighlight = "true"
+
+[params]
+github = "https://github.com/tamnd/codeforces-cli"
