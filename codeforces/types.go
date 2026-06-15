@@ -50,6 +50,61 @@ func formatDuration(d int) string {
 }
 
 // formatStart formats a Unix timestamp as "2006-01-02 15:04" in UTC.
+// Returns "" if ts == 0.
 func formatStart(unix int64) string {
+	if unix == 0 {
+		return ""
+	}
 	return time.Unix(unix, 0).UTC().Format("2006-01-02 15:04")
+}
+
+// knownTags is the comprehensive list of Codeforces problem tags.
+var knownTags = []string{
+	"2-sat",
+	"binary search",
+	"bitmasks",
+	"brute force",
+	"chinese remainder theorem",
+	"combinatorics",
+	"constructive algorithms",
+	"data structures",
+	"dfs and similar",
+	"divide and conquer",
+	"dp",
+	"dsu",
+	"expression parsing",
+	"fft",
+	"flows",
+	"games",
+	"geometry",
+	"graph matchings",
+	"graphs",
+	"greedy",
+	"hashing",
+	"implementation",
+	"interactive",
+	"math",
+	"matrices",
+	"meet-in-the-middle",
+	"number theory",
+	"probabilities",
+	"schedules",
+	"shortest paths",
+	"sortings",
+	"special",
+	"string suffix structures",
+	"strings",
+	"ternary search",
+	"trees",
+	"two pointers",
+}
+
+// Tags returns the static list of known Codeforces problem tags.
+// No network call is made. The list is sorted alphabetically.
+func Tags() []Tag {
+	tags := make([]Tag, len(knownTags))
+	for i, t := range knownTags {
+		tags[i] = Tag{Name: t}
+	}
+	return tags
 }
